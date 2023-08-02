@@ -35,10 +35,7 @@ public class GUI_South extends BoardGUI
 		{index = 31 - index;}
 		else {return;}
 		
-		long mask = (long) Math.pow(2, index);
-		if (index == 63) {mask = Long.parseUnsignedLong("9223372036854775808");}
-		
-		boardController.setBoardBinary(boardController.getBoardBinary() ^ mask);
+		boardController.updateBoardBinary(index);
 	}
 	
 	@Override

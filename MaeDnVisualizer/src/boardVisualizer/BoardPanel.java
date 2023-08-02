@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -15,26 +16,79 @@ public class BoardPanel extends JPanel
 	
 	private BoardController boardController;
 	
+	//PIECES
+	private class Piece
+	{
+		int index;
+		int x, y;
+		Piece(int index, int x, int y)
+		{this.index = index; this.x = x; this.y = y;}
+	}
+	private Piece selectedPiece;
+	private ArrayList<Piece> curPieces;
+	private boolean dragging = false;
+	
 	BoardPanel(BoardController boardController)
 	{
 		this.boardController = boardController;
 		this.setPreferredSize(new Dimension(BOARD_SIZE, BOARD_SIZE));
+		this.curPieces = new ArrayList<>();
 	}
 	
-	public void paint(Graphics g)
+	public void selectPiece(int x, int y)
 	{
-		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(Board.pngImage, 0, 0, this);
-
-		//PIECES
-		String board = boardController.getBoardBinaryString();
-		for (int i = 0; i < 64; i++)
+		selectedPiece = null;
+		
+		for (Piece p : curPieces)
 		{
-			if (board.charAt(i) == '1') {drawPiece(g2D, i);}
+			if (x > p.x && x < p.x + 65 && y > p.y && y < p.y + 65)
+			{
+				selectedPiece = p;
+				return;
+			}
 		}
 	}
 	
-	private void drawPiece(Graphics2D g2D, int index)
+	public boolean pieceSelected() {return selectedPiece != null;}
+	
+	public void drag(int x, int y)
+	{
+		if (selectedPiece == null) {return;}
+		
+		if (x - 25 > 0 && x < BOARD_SIZE) {selectedPiece.x = x - 25;}
+		if (y - 45 > 0 && y - 25 < BOARD_SIZE) {selectedPiece.y = y - 45;}
+		dragging = true;
+		repaint();
+	}
+	
+	public void releasePiece()
+	{
+		if (selectedPiece == null) {return;}
+		
+		//bit of a brute force strategy, but it is not run very often
+		//and this is only supposed to be a small visualizer
+		for (int i = 0; i < 48; i++)
+		{
+			int[] coords = indexToCoords(i);
+			if (selectedPiece.x > coords[0] - 20 && selectedPiece.x < coords[0] + 20
+					&& selectedPiece.y > coords[1] - 20 && selectedPiece.y < coords[1]  + 20)
+			{
+				//REMOVE OLD POSITION
+				boardController.updateBoardBinary(63 - selectedPiece.index);
+				
+				//ADD NEW POSITION
+				boardController.updateBoardBinary(63 - i);
+				
+				break;
+			}
+		}
+		
+		dragging = false;
+		updatePieces();
+		selectedPiece = null;
+	}
+	
+	private int[] indexToCoords(int index)
 	{
 		//INDEX: 0-3: waiting | 4-43: board location | 44-47: finished
 		int x = 0, y = 0;
@@ -77,19 +131,44 @@ public class BoardPanel extends JPanel
 			y = 484 - 50*(index - 44);
 		}
 		
-		else {return;}
-		
-		drawPieceXY(g2D, x, y);
+		else {return null;}
+		return new int[] {x, y};
 	}
 	
-	private void drawPieceXY(Graphics2D g2D, int x, int y)
+	private void updatePieces()
+	{
+		curPieces.removeAll(curPieces);
+		String board = boardController.getBoardBinaryString();
+		for (int i = 0; i < 64; i++)
+		{
+			if (board.charAt(i) == '1') 
+			{
+				int[] coords = indexToCoords(i);
+				if (coords != null)
+				{curPieces.add(new Piece(i, coords[0], coords[1]));}
+			}
+		}
+	}
+	
+	public void paint(Graphics g)
+	{
+		Graphics2D g2D = (Graphics2D) g;
+		g2D.drawImage(Board.pngImage, 0, 0, this);
+
+		//PIECES
+		if (!dragging) {updatePieces();}
+		for (Piece p : curPieces)
+		{drawPiece(g2D, p);}
+	}
+	
+	private void drawPiece(Graphics2D g2D, Piece p)
 	{		
 		//FLOOR
 		g2D.setPaint(Color.black);
-		g2D.fillOval(x, y, 33, 33);
+		g2D.fillOval(p.x, p.y, 33, 33);
 		
 		//TOP
 		g2D.setPaint(Color.DARK_GRAY);
-		g2D.fillOval(x - 6, y - 6, 30, 30);
+		g2D.fillOval(p.x - 6, p.y - 6, 30, 30);
 	}
 }

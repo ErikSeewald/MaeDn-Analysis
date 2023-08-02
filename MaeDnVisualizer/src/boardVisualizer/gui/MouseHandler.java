@@ -10,11 +10,13 @@ public class MouseHandler
 {
 	private VisualizerFrame frame;
 	private GUI_South guiSouth;
+	private BoardPanel boardPanel;
 	
-	public MouseHandler(VisualizerFrame frame, GUI_South guiSouth)
+	public MouseHandler(VisualizerFrame frame, GUI_South guiSouth, BoardPanel boardPanel)
 	{
 		this.frame = frame;
 		this.guiSouth = guiSouth;
+		this.boardPanel = boardPanel;
 	}
 
 	public class ClickListener extends MouseAdapter
@@ -35,7 +37,10 @@ public class MouseHandler
 	{
 		public void mouseDragged(MouseEvent e) 
 		{
-		
+			int x = e.getX(), y = e.getY();
+			
+			if (!boardPanel.pieceSelected()) {boardPanel.selectPiece(x - GUI_West.PANEL_WIDTH, y);}
+			boardPanel.drag(x - GUI_West.PANEL_WIDTH, y);		
 		}
 	}
 
@@ -43,7 +48,8 @@ public class MouseHandler
 	{
 		public void mouseReleased(MouseEvent e) 
 		{
-		
+			boardPanel.releasePiece();	
+			frame.update();
 		}
 	}
 }

@@ -27,6 +27,14 @@ public class GUI_West extends BoardGUI
 		
 		//TEXT
 		g2D.setPaint(Color.white);
+		
+		g2D.setFont(new Font("", Font.BOLD, 26));
+		g2D.drawString("Move the pieces by", 10, 50);
+		g2D.drawString("dragging your mouse", 10, 80);
+		g2D.drawString("or by adjusting", 10, 110);
+		g2D.drawString("the boards binary", 10, 140);
+		g2D.drawString("representation!", 10, 170);
+		
 		g2D.setFont(new Font("", Font.BOLD, 30));
 		g2D.drawString("Board in binary:", 30, PANEL_HEIGHT - 30);
 		g2D.drawString("Board in decimal:", 30, PANEL_HEIGHT - 100);

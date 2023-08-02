@@ -36,7 +36,7 @@ public class VisualizerFrame extends JFrame
 		guiWest = new GUI_West(boardController);
 		guiEast = new GUI_East(boardController);
 		
-		mouseHandler = new MouseHandler(this, guiSouth);
+		mouseHandler = new MouseHandler(this, guiSouth, boardPanel);
 		this.addMouseListener(mouseHandler.new ClickListener());
 		this.addMouseMotionListener(mouseHandler.new DragListener());
 		this.addMouseListener(mouseHandler.new ReleaseListener());	
