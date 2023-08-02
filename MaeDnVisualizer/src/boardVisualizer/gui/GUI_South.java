@@ -39,7 +39,6 @@ public class GUI_South extends BoardGUI
 		if (index == 63) {mask = Long.parseUnsignedLong("9223372036854775808");}
 		
 		boardController.setBoardBinary(boardController.getBoardBinary() ^ mask);
-		repaint();
 	}
 	
 	@Override
@@ -64,10 +63,10 @@ public class GUI_South extends BoardGUI
 		g2D.setFont(new Font("", Font.BOLD, 18));
 		for (int i = 0; i < 32; i++)
 		{
-			g2D.setPaint(binary.charAt(i) == '1' ? Color.white : Color.black);
+			g2D.setPaint(binary.charAt(i) == '1' ? Color.black : Color.white);
 			g2D.drawString(""+binary.charAt(i), x_buffer + 35 * i, y_buffer_first);
 			
-			g2D.setPaint(binary.charAt(i+32) == '1' ? Color.white : Color.black);
+			g2D.setPaint(binary.charAt(i+32) == '1' ? Color.black : Color.white);
 			g2D.drawString(""+binary.charAt(i+32), x_buffer + 35 * i, y_buffer_second);
 		}
 	}

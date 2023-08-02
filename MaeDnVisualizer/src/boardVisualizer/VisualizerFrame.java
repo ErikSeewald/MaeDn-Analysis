@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import boardVisualizer.gui.GUI_East;
 import boardVisualizer.gui.GUI_South;
 import boardVisualizer.gui.GUI_West;
+import boardVisualizer.gui.MouseHandler;
 
 public class VisualizerFrame extends JFrame
 {
@@ -19,10 +20,18 @@ public class VisualizerFrame extends JFrame
 	
 	public static final Color background_color = new Color(120, 90, 60);
 	
+	public void update()
+	{
+		guiSouth.repaint();
+		guiWest.repaint();
+		guiEast.repaint();
+		boardPanel.repaint();
+	}
+	
 	public VisualizerFrame()
 	{
-		boardPanel = new BoardPanel();
 		boardController = new BoardController();
+		boardPanel = new BoardPanel(boardController);
 		guiSouth = new GUI_South(boardController);
 		guiWest = new GUI_West(boardController);
 		guiEast = new GUI_East(boardController);

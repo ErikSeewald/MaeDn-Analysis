@@ -1,16 +1,17 @@
-package boardVisualizer;
+package boardVisualizer.gui;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-import boardVisualizer.gui.GUI_South;
+import boardVisualizer.BoardPanel;
+import boardVisualizer.VisualizerFrame;
 
 public class MouseHandler 
 {
 	private VisualizerFrame frame;
 	private GUI_South guiSouth;
 	
-	MouseHandler(VisualizerFrame frame, GUI_South guiSouth)
+	public MouseHandler(VisualizerFrame frame, GUI_South guiSouth)
 	{
 		this.frame = frame;
 		this.guiSouth = guiSouth;
@@ -25,6 +26,8 @@ public class MouseHandler
 			//INSIDE GUI_SOUTH
 			if (y > BoardPanel.BOARD_SIZE)
 			{guiSouth.clickedDigit(x, y - BoardPanel.BOARD_SIZE);}
+			
+			frame.update();
 		}
 	}
 

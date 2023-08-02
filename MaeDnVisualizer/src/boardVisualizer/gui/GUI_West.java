@@ -2,6 +2,7 @@ package boardVisualizer.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -24,8 +25,17 @@ public class GUI_West extends BoardGUI
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
 		
-		//SOUTH BORDER
+		//TEXT
+		g2D.setPaint(Color.white);
+		g2D.setFont(new Font("", Font.BOLD, 30));
+		g2D.drawString("Board in binary:", 30, PANEL_HEIGHT - 30);
+		g2D.drawString("Board in decimal:", 30, PANEL_HEIGHT - 100);
+		
+		g2D.setFont(new Font("", Font.PLAIN, 20));
+		g2D.drawString("(Click to adjust digits)", 30, PANEL_HEIGHT - 5);
+		
 		g2D.setPaint(Color.black);
-		g2D.fillRect(0, this.getHeight() - 5, this.getWidth(), this.getHeight());
+		g2D.setFont(new Font("", Font.BOLD, 20));
+		g2D.drawString(""+boardController.getBoardBinary(), 30, PANEL_HEIGHT - 70);
 	}
 }

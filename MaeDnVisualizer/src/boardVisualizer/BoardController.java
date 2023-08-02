@@ -2,7 +2,7 @@ package boardVisualizer;
 
 public class BoardController 
 {
-	private long boardBinary = 344;
+	private long boardBinary;
 	
 	public void setBoardBinary(long boardBinary) {this.boardBinary = boardBinary;}
 	
