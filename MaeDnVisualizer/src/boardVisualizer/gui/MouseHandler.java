@@ -48,7 +48,7 @@ public class MouseHandler
 	{
 		public void mouseReleased(MouseEvent e) 
 		{
-			boardPanel.releasePiece();	
+			boardPanel.releasePiece();
 			frame.update();
 		}
 	}

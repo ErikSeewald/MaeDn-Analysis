@@ -12,16 +12,16 @@ public class Board
 	static 
 	{
 		BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-		try 
-		{		    
+		try
+		{
 		    URL input = Main.class.getClassLoader().getResource("Mensch_ärgere_dich_nicht_4.svg.png");
 			
 			if (input != null) 
 			{
 				image = ImageIO.read(input);
 			}
-		} 
-		catch (IOException e) 
+		}
+		catch (IOException e)
 		{System.out.println("Failed to read board image. Replacing with default image.");}
 
 		pngImage = image;

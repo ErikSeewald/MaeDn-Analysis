@@ -16,6 +16,13 @@ public class BoardController
 	
 	public long getBoardBinary() {return boardBinary;}
 	
+	private static final long bitMask48 = 65535L; //0000000000000000000000000000000000000000000000001111111111111111
+	public int getUnitsMoved()
+	{
+		long masked = boardBinary & bitMask48;
+		return (int) masked;
+	}
+	
 	public String getBoardBinaryString()
 	{return String.format("%64s", Long.toBinaryString(boardBinary)).replace(' ', '0');}
 }

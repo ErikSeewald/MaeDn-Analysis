@@ -38,10 +38,11 @@ public class BoardPanel extends JPanel
 	public void selectPiece(int x, int y)
 	{
 		selectedPiece = null;
+		int grab_buffer = 65;
 		
 		for (Piece p : curPieces)
 		{
-			if (x > p.x && x < p.x + 65 && y > p.y && y < p.y + 65)
+			if (x > p.x && x < p.x + grab_buffer && y > p.y && y < p.y + grab_buffer)
 			{
 				selectedPiece = p;
 				return;
@@ -66,12 +67,13 @@ public class BoardPanel extends JPanel
 		if (selectedPiece == null) {return;}
 		
 		//bit of a brute force strategy, but it is not run very often
-		//and this is only supposed to be a small visualizer
+		//and this is only supposed to be a small visualizer anyway
+		int snap_buffer = 20;
 		for (int i = 0; i < 48; i++)
 		{
 			int[] coords = indexToCoords(i);
-			if (selectedPiece.x > coords[0] - 20 && selectedPiece.x < coords[0] + 20
-					&& selectedPiece.y > coords[1] - 20 && selectedPiece.y < coords[1]  + 20)
+			if (selectedPiece.x > coords[0] - snap_buffer && selectedPiece.x < coords[0] + snap_buffer
+					&& selectedPiece.y > coords[1] - snap_buffer && selectedPiece.y < coords[1]  + snap_buffer)
 			{
 				//REMOVE OLD POSITION
 				boardController.updateBoardBinary(63 - selectedPiece.index);

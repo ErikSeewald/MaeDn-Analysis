@@ -44,14 +44,21 @@ public class GUI_South extends BoardGUI
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
 		
-		//BOARD IN BINARY
-		g2D.setPaint(Color.white);
+		//BOARD IN BINARY:
 		g2D.setFont(new Font("", Font.PLAIN, 15));
 		
 		//Indices
 		for (int i = 0; i < 32; i++)
 		{
+			g2D.setPaint(Color.white);
+			g2D.setFont(new Font("", Font.PLAIN, 15));
 			g2D.drawString("" + (63 - i) , 50 + 35 * i, 50);
+			
+			if (i > 15) //Last 16 bits
+			{
+				g2D.setFont(new Font("", Font.BOLD, 15)); 
+				g2D.setPaint(Color.black);
+			}
 			g2D.drawString("" + (63 - (i+32)) , 50 + 35 * i, 130);
 		}
 		

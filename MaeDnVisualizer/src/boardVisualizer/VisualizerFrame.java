@@ -20,14 +20,6 @@ public class VisualizerFrame extends JFrame
 	
 	public static final Color background_color = new Color(120, 90, 60);
 	
-	public void update()
-	{
-		guiSouth.repaint();
-		guiWest.repaint();
-		guiEast.repaint();
-		boardPanel.repaint();
-	}
-	
 	public VisualizerFrame()
 	{
 		boardController = new BoardController();
@@ -52,5 +44,13 @@ public class VisualizerFrame extends JFrame
 		this.add(guiSouth, BorderLayout.SOUTH);
 		this.pack();
 		this.setVisible(true);
+	}
+	
+	public void update()
+	{
+		guiSouth.repaint();
+		guiWest.repaint();
+		guiEast.repaint();
+		boardPanel.repaint();
 	}
 }
