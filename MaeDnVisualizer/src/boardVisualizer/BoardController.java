@@ -4,12 +4,9 @@ public class BoardController
 {
 	private long boardBinary = -1152921504606846976L;
 	
-	public void updateBoardBinary(long changeIndex)
+	public void switchBoardDigit(long digitIndex)
 	{
-		long mask = (long) Math.pow(2, changeIndex);
-		if (changeIndex == 63) {mask = Long.parseUnsignedLong("9223372036854775808");}
-		
-		boardBinary ^= mask;
+		boardBinary ^= 1L << digitIndex; // xor with digit at digitIndex
 	}
 	
 	public void setBoardBinary(long boardBinary) {this.boardBinary = boardBinary;}

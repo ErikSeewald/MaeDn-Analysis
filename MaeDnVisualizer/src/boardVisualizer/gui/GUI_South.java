@@ -27,15 +27,15 @@ public class GUI_South extends BoardGUI
 	public void clickedDigit(int x, int y)
 	{
 		if (x < x_buffer || x > PANEL_WIDTH - x_buffer) {return;}
-		int index = (x-x_buffer) / x_spacing;
+		int digit = (x-x_buffer) / x_spacing;
 
 		if (y > y_buffer_first - 5 && y < y_buffer_first + 30)
-		{index = 63 - index;}
+		{digit = 63 - digit;}
 		else if (y > y_buffer_second - 5 && y < y_buffer_second + 30)
-		{index = 31 - index;}
+		{digit = 31 - digit;}
 		else {return;}
 		
-		boardController.updateBoardBinary(index);
+		boardController.switchBoardDigit(digit);
 	}
 	
 	@Override

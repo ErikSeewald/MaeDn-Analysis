@@ -27,9 +27,10 @@ public class MouseHandler
 			
 			//INSIDE GUI_SOUTH
 			if (y > BoardPanel.BOARD_SIZE)
-			{guiSouth.clickedDigit(x, y - BoardPanel.BOARD_SIZE);}
-			
-			frame.update();
+			{
+				guiSouth.clickedDigit(x, y - BoardPanel.BOARD_SIZE);
+				frame.update();
+			}
 		}
 	}
 
@@ -39,8 +40,10 @@ public class MouseHandler
 		{
 			int x = e.getX(), y = e.getY();
 			
-			if (!boardPanel.pieceSelected()) {boardPanel.selectPiece(x - GUI_West.PANEL_WIDTH, y);}
-			boardPanel.drag(x - GUI_West.PANEL_WIDTH, y);		
+			if (!boardPanel.pieceSelected()) 
+			{boardPanel.selectPiece(x - GUI_West.PANEL_WIDTH, y);}
+			
+			boardPanel.drag(x - GUI_West.PANEL_WIDTH, y);
 		}
 	}
 

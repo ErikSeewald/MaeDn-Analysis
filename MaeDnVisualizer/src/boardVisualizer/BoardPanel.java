@@ -66,6 +66,7 @@ public class BoardPanel extends JPanel
 	{
 		if (selectedPiece == null) {return;}
 		
+		//run through all indexToCoords() possibilities until match is found
 		//bit of a brute force strategy, but it is not run very often
 		//and this is only supposed to be a small visualizer anyway
 		int snap_buffer = 20;
@@ -76,10 +77,10 @@ public class BoardPanel extends JPanel
 					&& selectedPiece.y > coords[1] - snap_buffer && selectedPiece.y < coords[1]  + snap_buffer)
 			{
 				//REMOVE OLD POSITION
-				boardController.updateBoardBinary(63 - selectedPiece.index);
+				boardController.switchBoardDigit(63 - selectedPiece.index);
 				
 				//ADD NEW POSITION
-				boardController.updateBoardBinary(63 - i);
+				boardController.switchBoardDigit(63 - i);
 				
 				break;
 			}
