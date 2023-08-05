@@ -70,6 +70,7 @@ public class VisualizerFrame extends JFrame
                     	{
                     		String pasted = (String) transferable.getTransferData(DataFlavor.stringFlavor);
 
+                            if (pasted.length() > 64) {return;}
                     		// MAKE SURE IT IS A BINARY NUMBER
                             for (char c : pasted.toCharArray())
                             {
@@ -77,7 +78,17 @@ public class VisualizerFrame extends JFrame
                             	{return;}
                             }
                             
-                            boardController.setBoardBinary(Long.parseLong(pasted, 2));
+                            //HANDLE THE 2 LEFT MOST DIGITS SEPERATELY, parseLong BREAKS OTHERWISE
+                            if (pasted.length() == 64)
+                            {
+                            	long mask = Long.parseLong(""+pasted.charAt(0)) << 63;
+                                mask |= Long.parseLong(""+pasted.charAt(1)) << 62;
+                                boardController.setBoardBinary(mask | Long.parseLong(pasted.substring(2), 2));
+                            }
+                            
+                            else
+                            {boardController.setBoardBinary(Long.parseLong(pasted, 2));}
+                            
                             
                     	} catch (Exception ex) {ex.printStackTrace();}
                     }

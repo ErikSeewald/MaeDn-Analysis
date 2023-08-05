@@ -9,7 +9,10 @@ public class BoardController
 	{this.frame = frame;}
 	
 	public void update()
-	{frame.update();}
+	{
+		frame.update();
+		System.out.println(getBoardBinaryString());
+	}
 	
 	public void switchBoardDigit(long digitIndex)
 	{
