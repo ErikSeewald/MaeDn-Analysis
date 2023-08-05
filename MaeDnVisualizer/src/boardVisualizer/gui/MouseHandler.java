@@ -2,19 +2,15 @@ package boardVisualizer.gui;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-
 import boardVisualizer.BoardPanel;
-import boardVisualizer.VisualizerFrame;
 
 public class MouseHandler 
 {
-	private VisualizerFrame frame;
 	private GUI_South guiSouth;
 	private BoardPanel boardPanel;
 	
-	public MouseHandler(VisualizerFrame frame, GUI_South guiSouth, BoardPanel boardPanel)
+	public MouseHandler(GUI_South guiSouth, BoardPanel boardPanel)
 	{
-		this.frame = frame;
 		this.guiSouth = guiSouth;
 		this.boardPanel = boardPanel;
 	}
@@ -29,7 +25,6 @@ public class MouseHandler
 			if (y > BoardPanel.BOARD_SIZE)
 			{
 				guiSouth.clickedDigit(x, y - BoardPanel.BOARD_SIZE);
-				frame.update();
 			}
 		}
 	}
@@ -52,7 +47,6 @@ public class MouseHandler
 		public void mouseReleased(MouseEvent e) 
 		{
 			boardPanel.releasePiece();
-			frame.update();
 		}
 	}
 }

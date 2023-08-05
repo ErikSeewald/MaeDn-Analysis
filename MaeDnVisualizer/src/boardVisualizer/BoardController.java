@@ -3,13 +3,25 @@ package boardVisualizer;
 public class BoardController 
 {
 	private long boardBinary = -1152921504606846976L;
+	private VisualizerFrame frame;
+	
+	BoardController(VisualizerFrame frame)
+	{this.frame = frame;}
+	
+	public void update()
+	{frame.update();}
 	
 	public void switchBoardDigit(long digitIndex)
 	{
 		boardBinary ^= 1L << digitIndex; // xor with digit at digitIndex
+		update();
 	}
 	
-	public void setBoardBinary(long boardBinary) {this.boardBinary = boardBinary;}
+	public void setBoardBinary(long boardBinary) 
+	{
+		this.boardBinary = boardBinary;
+		update();
+	}
 	
 	public long getBoardBinary() {return boardBinary;}
 	

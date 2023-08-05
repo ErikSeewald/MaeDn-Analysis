@@ -64,7 +64,8 @@ public class BoardPanel extends JPanel
 	
 	public void releasePiece()
 	{
-		if (selectedPiece == null) {return;}
+		if (selectedPiece == null) 
+		{return;}
 		
 		//run through all indexToCoords() possibilities until match is found
 		//bit of a brute force strategy, but it is not run very often
@@ -89,6 +90,7 @@ public class BoardPanel extends JPanel
 		dragging = false;
 		updatePieces();
 		selectedPiece = null;
+		boardController.update(); // to update frame even if no suitable position is found
 	}
 	
 	private int[] indexToCoords(int index)

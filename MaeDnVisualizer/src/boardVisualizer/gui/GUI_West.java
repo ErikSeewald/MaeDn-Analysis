@@ -13,6 +13,7 @@ public class GUI_West extends BoardGUI
 	private static final long serialVersionUID = -4993256464263352137L;
 	public static final int PANEL_WIDTH = 300, PANEL_HEIGHT = 600;
 
+	
 	public GUI_West(BoardController boardController)
 	{
 		super(boardController);
@@ -34,6 +35,10 @@ public class GUI_West extends BoardGUI
 		g2D.drawString("or by adjusting", 10, 110);
 		g2D.drawString("the boards binary", 10, 140);
 		g2D.drawString("representation!", 10, 170);
+		
+		g2D.drawString("You can also paste a", 10, 250);
+		g2D.drawString("binary board number", 10, 280);
+		g2D.drawString("with CTRL-V", 10, 310);
 		
 		g2D.setFont(new Font("", Font.BOLD, 30));
 		g2D.drawString("Board in binary:", 30, PANEL_HEIGHT - 30);

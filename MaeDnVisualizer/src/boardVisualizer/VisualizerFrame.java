@@ -1,6 +1,13 @@
 package boardVisualizer;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JFrame;
 import boardVisualizer.gui.GUI_East;
 import boardVisualizer.gui.GUI_South;
@@ -22,13 +29,13 @@ public class VisualizerFrame extends JFrame
 	
 	public VisualizerFrame()
 	{
-		boardController = new BoardController();
+		boardController = new BoardController(this);
 		boardPanel = new BoardPanel(boardController);
 		guiSouth = new GUI_South(boardController);
 		guiWest = new GUI_West(boardController);
 		guiEast = new GUI_East(boardController);
 		
-		mouseHandler = new MouseHandler(this, guiSouth, boardPanel);
+		mouseHandler = new MouseHandler(guiSouth, boardPanel);
 		this.addMouseListener(mouseHandler.new ClickListener());
 		this.addMouseMotionListener(mouseHandler.new DragListener());
 		this.addMouseListener(mouseHandler.new ReleaseListener());	
@@ -44,6 +51,39 @@ public class VisualizerFrame extends JFrame
 		this.add(guiSouth, BorderLayout.SOUTH);
 		this.pack();
 		this.setVisible(true);
+		
+		//PASTING BOARDS
+		this.addKeyListener(new KeyAdapter() 
+		{
+            @Override
+            public void keyPressed(KeyEvent e) 
+            {
+            	// GET THE PASTED BINARY NUMBER
+            	if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_V) 
+                {
+            		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            		Transferable transferable = clipboard.getContents(null);
+
+                    if (transferable != null && transferable.isDataFlavorSupported(DataFlavor.stringFlavor)) 
+                    {
+                    	try 
+                    	{
+                    		String pasted = (String) transferable.getTransferData(DataFlavor.stringFlavor);
+
+                    		// MAKE SURE IT IS A BINARY NUMBER
+                            for (char c : pasted.toCharArray())
+                            {
+                            	if (c != '0' && c != '1') 
+                            	{return;}
+                            }
+                            
+                            boardController.setBoardBinary(Long.parseLong(pasted, 2));
+                            
+                    	} catch (Exception ex) {ex.printStackTrace();}
+                    }
+                }
+            }
+        });
 	}
 	
 	public void update()
