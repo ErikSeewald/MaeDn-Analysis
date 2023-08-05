@@ -1,0 +1,13 @@
+"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.4/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\Erik\Desktop\MaeDn-Analysis\MaeDnBruteForcer -B C:\Users\Erik\Desktop\MaeDn-Analysis\MaeDnBruteForcer\cmake-build-debug
+-- Configuring done
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    brute_forcer.c,
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: MaeDnBruteForcer
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
