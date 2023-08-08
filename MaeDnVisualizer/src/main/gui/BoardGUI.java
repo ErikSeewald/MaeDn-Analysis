@@ -1,10 +1,10 @@
-package boardVisualizer.gui;
+package main.gui;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import boardVisualizer.BoardController;
-import boardVisualizer.VisualizerFrame;
+import main.BoardController;
+import main.VisualizerFrame;
 
 public abstract class BoardGUI extends JPanel
 {

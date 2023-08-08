@@ -1,18 +1,40 @@
-package boardVisualizer;
+package main;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
-
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
-import main.Board;
 
 public class BoardPanel extends JPanel
 {
 	private static final long serialVersionUID = -458505873926098128L;
 	public static final int BOARD_SIZE = 600;
+	
+	//BOARD IMAGE
+	public static final BufferedImage pngBoard;
+	static 
+	{
+		BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+		try
+		{
+			URL input = Main.class.getClassLoader().getResource("Mensch_ärgere_dich_nicht_4.svg.png");
+				
+			if (input != null) 
+			{
+				image = ImageIO.read(input);
+			}
+		}
+		catch (IOException e)
+		{System.out.println("Failed to read board image. Replacing with default image.");}
+
+		pngBoard = image;
+	}
 	
 	private BoardController boardController;
 	
@@ -158,7 +180,7 @@ public class BoardPanel extends JPanel
 	public void paint(Graphics g)
 	{
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(Board.pngImage, 0, 0, this);
+		g2D.drawImage(pngBoard, 0, 0, this);
 
 		//PIECES
 		if (!dragging) {updatePieces();}

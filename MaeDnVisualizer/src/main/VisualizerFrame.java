@@ -1,4 +1,5 @@
-package boardVisualizer;
+package main;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -7,12 +8,11 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import javax.swing.JFrame;
-import boardVisualizer.gui.GUI_East;
-import boardVisualizer.gui.GUI_South;
-import boardVisualizer.gui.GUI_West;
-import boardVisualizer.gui.MouseHandler;
+import main.gui.GUI_East;
+import main.gui.GUI_South;
+import main.gui.GUI_West;
+import main.gui.MouseHandler;
 
 public class VisualizerFrame extends JFrame
 {

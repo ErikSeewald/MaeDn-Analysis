@@ -1,19 +1,17 @@
-package boardVisualizer.gui;
+package main.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
-import boardVisualizer.BoardController;
+import main.BoardController;
 
 public class GUI_West extends BoardGUI
 {
 	private static final long serialVersionUID = -4993256464263352137L;
 	public static final int PANEL_WIDTH = 300, PANEL_HEIGHT = 600;
 
-	
 	public GUI_West(BoardController boardController)
 	{
 		super(boardController);

@@ -1,11 +1,11 @@
-package boardVisualizer.gui;
+package main.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import boardVisualizer.BoardController;
+import main.BoardController;
 
 public class GUI_South extends BoardGUI
 {

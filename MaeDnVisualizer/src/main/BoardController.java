@@ -1,4 +1,4 @@
-package boardVisualizer;
+package main;
 
 public class BoardController 
 {
