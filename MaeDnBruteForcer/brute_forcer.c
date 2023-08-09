@@ -163,12 +163,12 @@ int64_t extract_piece(int64_t path, int operation_flag)
 
 /**
  * Finds the shortest path for bringing a single piece inside the piece_mask
- * (in the bitboard) to the rightmost still empty a,b,c,d tile.
- * It also updates the path history bit board in it's recursive call chain.
+ * (in the bitboard) to the rightmost still empty a,b,c,d tile by updating
+ * the path history bit board in it's recursive call chain.
  * @param path bit board with all previously taken step digits turned on + current distance
  * @return Shortest path length in units
  */
-int handle_piece(int64_t path)
+void handle_piece(int64_t path)
 {
     int64_t piece_mask = extract_piece(path, EXTRACT_RIGHTMOST);
 
@@ -182,9 +182,8 @@ int handle_piece(int64_t path)
     }
 
     if ((path & distance_mask) + squares_left*min_units_per_square  > cur_shortest)
-    {return distance_mask;}
+    {return;}
 
-    int bests[6] = {distance_mask, distance_mask, distance_mask, distance_mask, distance_mask, distance_mask};
     //count down - counting up would cause it to enter branches that
     //will be cut off anyway if a higher roll reaches the goal immediately
     for (int i = 6; i > 0; i--)
@@ -209,27 +208,14 @@ int handle_piece(int64_t path)
                     full_path[full_path_index] = (path | roll) + dist;
                     cur_shortest = new_length;
                 }
-                return new_length;
+                return;
             }
-
-            //else skip roll as we would get in the way of other pieces if we do not finish at the rightmost position
-            else {continue;}
         }
-
-        //Handle current rolls subtree
-        bests[i - 1] = handle_piece((path | roll) + dist);
+        else
+        {
+            handle_piece((path | roll) + dist); //Handle current rolls subtree
+        }
     }
-
-    //Get shortest path length for this branch
-    int shortest = bests[0] & distance_mask;
-    for (int i = 1; i < 6; i++)
-    {
-        int cur = bests[i] & distance_mask;
-        if (cur < shortest)
-        {shortest = cur;}
-    }
-
-    return shortest;
 }
 
 

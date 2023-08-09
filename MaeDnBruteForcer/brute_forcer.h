@@ -90,12 +90,12 @@ int64_t extract_piece(int64_t path, int operation_flag);
 
 /**
  * Finds the shortest path for bringing a single piece inside the piece_mask
- * (in the bitboard) to the rightmost still empty a,b,c,d tile.
- * It also updates the path history bit board in it's recursive call chain.
+ * (in the bitboard) to the rightmost still empty a,b,c,d tile by updating
+ * the path history bit board in it's recursive call chain.
  * @param path bit board with all previously taken step digits turned on + current distance
  * @return Shortest path length in units
  */
-int handle_piece(int64_t path);
+void handle_piece(int64_t path);
 
 /**
  * Find the shortest *physical* path to win, assuming
