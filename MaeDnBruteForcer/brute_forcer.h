@@ -15,6 +15,9 @@
 #define start_pos_Y 9170
 #define side_length_cm 36
 
+//3\cdot850\ +\ 4\cdot850\ +\ \sqrt{\left(3\cdot850\right)^{2}+850^{2}}+\ \sqrt{\left(4\cdot850\right)^{2}+850^{2}}
+#define total_movement_to_A 12143
+
 double convert_units_to_cm(int units);
 
 /**

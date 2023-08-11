@@ -229,7 +229,7 @@ void handle_piece(int64_t path)
  */
 int find_shortest_path()
 {
-    int path_length = 0;
+    int path_length = total_movement_to_A; // all piece movements to starting point A combined
 
     // As explained in the pdf, we only need to perform a
     // search for each of the pieces individually instead of successively
@@ -261,7 +261,6 @@ int main()
     clock_t start_time = clock();
     calculate_distances();
     int units = find_shortest_path();
-
 
     //RUNTIME
     double elapsed_time = (double) (clock() - start_time) / CLOCKS_PER_SEC;
