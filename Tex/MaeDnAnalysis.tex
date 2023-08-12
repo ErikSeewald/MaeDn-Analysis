@@ -172,10 +172,15 @@ We should also stop going into further sub-trees if the current distance moved i
 There will be more specifics that become apparent as soon as we start implementing these concepts in code of course, but for now this should be a solid guideline for how to construct the program. But one more thing needs to be considered first.
 
 \subsection{The bit-board}
-We want to save the current position and the distance moved for every function call with the position-tree, however, as seen in Section 2 - Computability, that could take up an incredibly large amount of space if we are not careful with what data structure we choose.
-There needs to be a way to save both position and distance in a relatively compact and fast but also still easy to understand structure.
+We want to save the current position and the distance moved for every function call in the position-tree, however, as seen in Section 2 - Computability, that could take up an incredibly large amount of space if we are not careful with what data structure we choose.
+There needs to be a way to save both position and distance in a relatively compact and fast but also still easy to understand way.
 
-That leaves us with exactly 16 bits at the end. Perfect. This space can be used for storing the amount of space moved up to the current position. Since we know every piece will receive it's own bit-board and thereby count only it's own movement, 16 bits are all we need. The distance between two tiles is 850 units while an unsigned 16 bit integer can represent numbers from 0 to 65536.
+Ideally the function should only receive a single, non-pointer variable. That variable should also be fast at being read from or written to. 
+Computer are very fast at doing bit-wise operations, to the point where every other operation needs to be translated down into bit-wise operations. If both position and distance could be saved in a single number that could then be modified and read from using bit-wise operators, that structure would certainly satisfy our criteria.
+
+A lot of the upcoming choices come down to personal preference. I have decided that I want a position to be represented by having each tile correspond to a bit. If the bit is a 0, it is empty. If it is a 1, there is a piece on the tile. Since there are 48 relevant tiles the use of a 32-bit number is out of the question. Since the next higher standardized type is a 64-bit number, we will have to stick with that, using the first 48 bits for the board state.
+
+That leaves us with exactly 16 bits at the end. This space can be used for storing the amount of space moved up to the current position. Since we know every piece will receive it's own bit-board and thereby count only it's own movement, 16 bits are all we need. The distance between two tiles is 850 units while an unsigned 16 bit integer can represent numbers from 0 to 65536.
 \[
     Maximum~worst~case~tile ~movements = \frac{65536_{uint16~limit}}{850_{Board~side~length}} = 77.10117
 \]
