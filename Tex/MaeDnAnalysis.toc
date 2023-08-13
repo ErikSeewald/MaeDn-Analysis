@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3}Solving the problem}{6}{}%
 \contentsline {subsection}{\numberline {3.1}The idea}{6}{}%
 \contentsline {subsection}{\numberline {3.2}The bit-board}{9}{}%
-\contentsline {subsection}{\numberline {3.3}The code}{10}{}%
-\contentsline {section}{\numberline {4}Discussion}{10}{}%
-\contentsline {subsection}{\numberline {4.1}Results}{10}{}%
-\contentsline {subsection}{\numberline {4.2}Runtime}{10}{}%
+\contentsline {subsection}{\numberline {3.3}The code}{11}{}%
+\contentsline {section}{\numberline {4}Discussion}{21}{}%
+\contentsline {subsection}{\numberline {4.1}Results}{21}{}%
+\contentsline {subsection}{\numberline {4.2}Runtime}{24}{}%

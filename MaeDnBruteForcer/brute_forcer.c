@@ -22,19 +22,19 @@ void get_coords(int index, int coords[])
     int i = 0;
     while (i < index)
     {
-        if (i < 4) {coords[1] -= square_distance;}
-        else if (i < 8) {coords[0] -= square_distance;}
-        else if (i < 10) {coords[1] -= square_distance;}
-        else if (i < 14) {coords[0] += square_distance;}
-        else if (i < 18) {coords[1] -= square_distance;}
-        else if (i < 20) {coords[0] += square_distance;}
-        else if (i < 24) {coords[1] += square_distance;}
-        else if (i < 28) {coords[0] += square_distance;}
-        else if (i < 30) {coords[1] += square_distance;}
-        else if (i < 34) {coords[0] -= square_distance;}
-        else if (i < 38) {coords[1] += square_distance;}
-        else if (i < 39) {coords[0] -= square_distance;}
-        else {coords[1] -= square_distance;}
+        if (i < 4) {coords[1] -= tile_distance;}
+        else if (i < 8) {coords[0] -= tile_distance;}
+        else if (i < 10) {coords[1] -= tile_distance;}
+        else if (i < 14) {coords[0] += tile_distance;}
+        else if (i < 18) {coords[1] -= tile_distance;}
+        else if (i < 20) {coords[0] += tile_distance;}
+        else if (i < 24) {coords[1] += tile_distance;}
+        else if (i < 28) {coords[0] += tile_distance;}
+        else if (i < 30) {coords[1] += tile_distance;}
+        else if (i < 34) {coords[0] -= tile_distance;}
+        else if (i < 38) {coords[1] += tile_distance;}
+        else if (i < 39) {coords[0] -= tile_distance;}
+        else {coords[1] -= tile_distance;}
         i++;
     }
 }
@@ -46,12 +46,7 @@ void get_coords(int index, int coords[])
  */
 void calculate_distances()
 {
-    int from[2];
-    int to[2];
-
-    //needs to be signed for negative vectors (fine since we can only move 6 spaces at
-    //a time -> vec distance is always way less than the int16_t limit)
-    int vec[2];
+    int from[2], to[2], vec[2];
     for (int i = 0; i < 40; i++)
     {
         get_coords(i, from);
@@ -147,13 +142,13 @@ int64_t extract_piece(int64_t path, int operation_flag)
 
     if (operation_flag == EXTRACT_RIGHTMOST)
     {
-        extracted = square_40;
+        extracted = tile_40;
         while (!(extracted&piece_mask)) {extracted <<= 1;}
     }
 
     else
     {
-        extracted = square_1;
+        extracted = tile_1;
         while (!(extracted&piece_mask)) {extracted >>= 1;}
     }
 
@@ -173,15 +168,16 @@ void handle_piece(int64_t path)
     int64_t piece_mask = extract_piece(path, EXTRACT_RIGHTMOST);
 
     //CHECK IF PATH CAN EVEN STILL BE SHORTER THAN cur_shortest
-    int squares_left = 0;
+    int tiles_left = 0;
     int64_t temp_piece_mask = piece_mask;
     while(!(temp_piece_mask&(path&abcd_mask|distance_mask)))
     {
         temp_piece_mask >>= 1;
-        squares_left++;
+        tiles_left++;
     }
+    tiles_left--;
 
-    if ((path & distance_mask) + squares_left*min_units_per_square  > cur_shortest)
+    if ((path & distance_mask) + tiles_left*min_units_per_tile  > cur_shortest)
     {return;}
 
     //count down - counting up would cause it to enter branches that
@@ -248,6 +244,7 @@ int find_shortest_path()
         }
         handle_piece(start_board);
         path_length += cur_shortest;
+        printf("%d\n", cur_shortest);
         cur_shortest = distance_mask; //RESET
         full_path_index++;
     }
@@ -268,11 +265,11 @@ int main()
 
 
     //PATH LENGTH IN UNITS
-    printf("The shortest path on a %dx%d units board is %d units. \n", side_length_units, side_length_units, units);
+    printf("The shortest path on a %dx%d units board is %d units long. \n", side_length_units, side_length_units, units);
 
     //PATH LENGTH IN CM
     double cm = convert_units_to_cm(units);
-    printf("The shortest path on a %dx%d cm board is %f cm \n", side_length_cm, side_length_cm, cm);
+    printf("The shortest path on a %dx%d cm board is %f cm long. \n", side_length_cm, side_length_cm, cm);
 
     //FULL PATH
     print_path();
