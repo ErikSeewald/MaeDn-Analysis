@@ -8,4 +8,4 @@
 \contentsline {subsection}{\numberline {3.3}The code}{11}{}%
 \contentsline {section}{\numberline {4}Discussion}{21}{}%
 \contentsline {subsection}{\numberline {4.1}Results}{21}{}%
-\contentsline {subsection}{\numberline {4.2}Runtime}{24}{}%
+\contentsline {subsection}{\numberline {4.2}Runtime}{26}{}%

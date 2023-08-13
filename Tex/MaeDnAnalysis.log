@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.16)  13 AUG 2023 12:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.16)  13 AUG 2023 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -287,18 +287,18 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
 [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 317--320
+Underfull \hbox (badness 10000) in paragraph at lines 319--322
 
  []
 
 
-Overfull \hbox (12.81908pt too wide) in paragraph at lines 321--323
+Overfull \hbox (12.81908pt too wide) in paragraph at lines 323--325
 []\OT1/cmr/m/n/12 The x and y co-or-di-nates are cal-cu-lated us-ing a func-tio
 n called \OT1/cmr/bx/n/12 get[]coords()\OT1/cmr/m/n/12 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 323--325
 
  []
 
@@ -306,17 +306,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 321--323
 <images/Figure7.png, id=65, 1027.84pt x 1027.84pt>
 File: images/Figure7.png Graphic file (type png)
 <use images/Figure7.png>
-Package pdftex.def Info: images/Figure7.png  used on input line 359.
+Package pdftex.def Info: images/Figure7.png  used on input line 361.
 (pdftex.def)             Requested size: 155.99762pt x 155.98863pt.
  [14 <./images/Figure7.png>] [15] [16]
-Overfull \hbox (46.9124pt too wide) in paragraph at lines 480--481
+Overfull \hbox (46.9124pt too wide) in paragraph at lines 482--483
 []\OT1/cmr/m/n/12 First, a \OT1/cmr/bx/n/12 piece[]mask \OT1/cmr/m/n/12 is cre-
 ated through a \OT1/cmr/bx/n/12 bit-wise AND \OT1/cmr/m/n/12 with the \OT1/cmr/
 bx/n/12 piece[]extractor
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 503--506
+Underfull \hbox (badness 10000) in paragraph at lines 505--508
 
  []
 
@@ -324,31 +324,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 503--506
 <images/Figure8.png, id=89, 1027.84pt x 1027.84pt>
 File: images/Figure8.png Graphic file (type png)
 <use images/Figure8.png>
-Package pdftex.def Info: images/Figure8.png  used on input line 589.
+Package pdftex.def Info: images/Figure8.png  used on input line 591.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
 <images/Figure9.png, id=90, 1027.84pt x 1027.84pt>
 File: images/Figure9.png Graphic file (type png)
 <use images/Figure9.png>
-Package pdftex.def Info: images/Figure9.png  used on input line 596.
+Package pdftex.def Info: images/Figure9.png  used on input line 598.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
 <images/Figure10.png, id=91, 1027.84pt x 1027.84pt>
 File: images/Figure10.png Graphic file (type png)
 <use images/Figure10.png>
-Package pdftex.def Info: images/Figure10.png  used on input line 603.
+Package pdftex.def Info: images/Figure10.png  used on input line 605.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
 <images/Figure11.png, id=92, 1027.84pt x 1027.84pt>
 File: images/Figure11.png Graphic file (type png)
 <use images/Figure11.png>
-Package pdftex.def Info: images/Figure11.png  used on input line 610.
+Package pdftex.def Info: images/Figure11.png  used on input line 612.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
 <images/Figure12.png, id=93, 1027.84pt x 1027.84pt>
 File: images/Figure12.png Graphic file (type png)
 <use images/Figure12.png>
-Package pdftex.def Info: images/Figure12.png  used on input line 617.
+Package pdftex.def Info: images/Figure12.png  used on input line 619.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
  [21 <./images/Figure8.png>] [22 <./images/Figure9.png> <./images/Figure10.png>
 ] [23 <./images/Figure11.png> <./images/Figure12.png>] [24]
-(MaeDnAnalysis.aux)
+<images/Figure13.png, id=111, 469.15276pt x 370.986pt>
+File: images/Figure13.png Graphic file (type png)
+<use images/Figure13.png>
+Package pdftex.def Info: images/Figure13.png  used on input line 660.
+(pdftex.def)             Requested size: 390.0pt x 308.41077pt.
+
+[25 <./images/Figure13.png>]
+<images/Figure14.png, id=117, 455.301pt x 344.487pt>
+File: images/Figure14.png Graphic file (type png)
+<use images/Figure14.png>
+Package pdftex.def Info: images/Figure14.png  used on input line 671.
+(pdftex.def)             Requested size: 155.99762pt x 118.02812pt.
+<images/Figure15.png, id=118, 502.2765pt x 290.88675pt>
+File: images/Figure15.png Graphic file (type png)
+<use images/Figure15.png>
+Package pdftex.def Info: images/Figure15.png  used on input line 680.
+(pdftex.def)             Requested size: 284.69833pt x 164.88394pt.
+ [26 <./images/Figure14.png> <./images/Figure15.png>]
+<images/Figure16.png, id=124, 495.65175pt x 302.93175pt>
+File: images/Figure16.png Graphic file (type png)
+<use images/Figure16.png>
+Package pdftex.def Info: images/Figure16.png  used on input line 700.
+(pdftex.def)             Requested size: 312.00119pt x 190.69547pt.
+
+Overfull \hbox (10.77428pt too wide) in paragraph at lines 705--706
+\OT1/cmr/m/n/12 own. More im-por-tantly, be-ing in-side the loop over all 6 rol
+ls in \OT1/cmr/bx/n/12 han-dle[]piece()\OT1/cmr/m/n/12 ,
+ []
+
+[27 <./images/Figure16.png>] (MaeDnAnalysis.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-06-30>
@@ -359,13 +388,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5083 strings out of 475550
- 73897 string characters out of 5763005
+ 5135 strings out of 475550
+ 75155 string characters out of 5763005
  2036238 words of memory out of 5000000
- 26279 multiletter control sequences out of 15000+600000
- 567506 words of font info for 73 fonts, out of 8000000 for 9000
+ 26330 multiletter control sequences out of 15000+600000
+ 567853 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,928b,1696s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,11n,65p,1076b,1696s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1
 200.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -376,10 +405,12 @@ TeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Erik/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eri
-k/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on MaeDnAnalysis.pdf (24 pages, 1999072 bytes).
+k/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/U
+sers/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pf
+b>
+Output written on MaeDnAnalysis.pdf (27 pages, 2090865 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

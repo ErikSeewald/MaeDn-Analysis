@@ -210,9 +210,9 @@ Ideally the function should only receive a single, non-pointer variable. That va
 Computer are very fast at doing \textbf{bitwise operations}, to the point where every other operation needs to be translated down into \textbf{bitwise operations}. If both position and distance could be saved in a single number that could then be modified and read from using \textbf{bitwise operators}, that structure would certainly satisfy our criteria.
 
 A lot of the upcoming choices come down to personal preference. I have decided that I want a position to be represented by having each tile correspond to a bit. If the bit is a 0, it is empty. If it is a 1, there is a piece on the tile. From left to right the first 4 bits are the \textbf{purgatory}, the next 40 the main board and at the end there are 4 more bits for the \textbf{abcd-tiles}.
-Since there are 48 relevant tile, the use of a 32-bit number is out of the question. Since the next higher standardized type is a 64-bit number, we will have to stick with that, using the first 48 bits for the board state.
+Since there are \textbf{48} relevant tiles, the use of a \textbf{32-bit} number is out of the question. Since the next higher standardized type is a \textbf{64-bit} number, we will have to stick with that, using the first \textbf{48} bits for the board state.
 
-That leaves us with exactly 16 bits at the end. This space can be used for storing the amount of space moved up to the current position. Since we know every piece will receive it's own \textbf{bit-board} and thereby count only it's own movement, 16 bits are all we need. The distance between two tiles is 850 units while an unsigned 16 bit integer can represent numbers from 0 to 65536.
+That leaves us with exactly \textbf{16} bits at the end. This space can be used for storing the amount of space moved up to the current position. Since we know every piece will receive it's own \textbf{bit-board} and thereby count only it's own movement, 16 bits are all we need. The distance between two tiles is \textbf{850} units while an \textbf{unsigned 16 bit integer} can represent numbers from \textbf{0} to \textbf{65536}.
 \[
     Maximum~worst~case~tile ~movements = \frac{65536_{uint16~limit}}{850_{Board~side~length}} = 77.10117
 \]
@@ -234,6 +234,8 @@ Experimenting with \textbf{Visualizer.jar} or the \textbf{MaeDnVisualizer} direc
 \subsection{The code}
 
 This section will focus on the specific implementation of the concepts discussed in the 3.1 and 3.2 in the C programming language.
+
+Let us begin by defining a few constants.
 
 \begin{lstlisting}[language=C, caption={Distance definitions}, label={lst:distance-defs}]
 
@@ -352,7 +354,7 @@ void get_coords(int index, int coords[])
 \end{lstlisting}
 
 This is not the most ideal way to handle the problem, but it is fast and simple. All the function does is start at the starting coordinates that have been defined earlier and then follow the path of the board, adding the distance between tiles each time. We begin by moving up (y is decreasing) 4 times, then we move to the left (x is decreasing), then up again and so on across the entire board.
-This makes a lot more sense when you consider the following tile indices:
+Consider the following tile indices:
 
 \begin{figure}[htbp]
     \centering
@@ -615,14 +617,92 @@ Well, here it is:
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{images/Figure12}
-    \caption{Full path}
+    \caption{Full path - 83047 units}
     \label{fig:full-path}
 \end{figure}
 
 \newpage
+Interestingly, the paths only differ at two parts of the board. The first of which is obvious. The pieces start at different positions but are required to move to the starting position A when exiting purgatory. The other point where the paths differ is at the last two rolls. Since the pieces end goals are different, there will of course be different ideal paths. \textbf{Piece 1 (blue)} needs to make quite a sharp turn at the end to reach to furthest back \textbf{abcd-tile}. Meanwhile, \textbf{piece 4 (pink)} can go in a perfectly straight path from the position where the paths diverge to it's end goal. However, the shortest singular path is actually \textbf{piece 3 (red)}, even though it cannot move in a straight line at the end like \textbf{piece 4 (pink)}. That is due to two reasons. The first of which being that \textbf{red} starts of one tile closer to the starting position than \textbf{pink}. Secondly, while pink may be able to move in a straight line, red's goal is actually closer to the divergence point.
+
+The 6 rolls in which all paths are equal are also quite interesting. A sequence of rolls \textbf{6-6-6-4-6-4-6} (including the 6 required to exit the \textbf{purgatory}) One the one hand this clearly shows that the highest roll is not always the optimal one, but on the other hand it is also clear that rolling higher is generally better. This reinforces our prior choice to loop over \textbf{sub-trees} starting from higher rolls to cut off unnecessary branches more quickly.
+
+All of the single piece paths require exactly \textbf{9} rolls when including the 6 rolled to exit the \textbf{purgatory}. That means the entire path requires \textbf{36} rolls.
+
+Because we know the rolls are equal until the very last 2, the average roll in the entire path can be calculated very quickly.
+
+\begin{align*}
+    \text{Roll total} &= 4 \cdot \left( 6+6+6+4+6+4+6 \right)_{\text{Overlap}} \\
+    &\quad + \left( 5+6 \right)_{\text{Piece 1}} + \left( 4+6 \right)_{\text{Piece 2}} \\
+    &\quad + \left( 3+6 \right)_{\text{Piece 3}} + \left( 4+4 \right)_{\text{Piece 4}} = 190
+\end{align*}
+
+\[
+	\text{Average roll} =  \frac{\text{Roll total}}{\text{Roll count}} = \frac{190}{36} \approx 5.27
+\]
+
+Close to 6, but still showing that 6 is not \textbf{always} the ideal roll.
+
+\newpage
+
+Lastly, here are the absolute and relative totals of each roll in the final path:
+
+\begin{itemize}
+    \item \textbf{1} - Rolled \textbf{0} times. \textbf{0\%} of all rolls.
+    \item \textbf{2} - Rolled \textbf{0} times. \textbf{0\%} of all rolls.
+    \item \textbf{3} - Rolled \textbf{1} time. \textbf{2.78\%} of all rolls
+    \item \textbf{4} - Rolled \textbf{11} times. \textbf{33.55\%} of all rolls.
+    \item \textbf{5} - Rolled \textbf{1} time. \textbf{2.78\%} of all rolls.
+    \item \textbf{6} - Rolled \textbf{23} times. \textbf{63.89\%} of all rolls.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Figure13}
+    \caption{Roll diagram}
+    \label{fig:roll-diagram}
+\end{figure}
+
 \subsection{Runtime}
-In the final version of the program the \text{handle\_piece()} function is called \newline 14 282 614 times in total, leading to an average runtime of 0.5 seconds on my AMD Ryzen 9 5950x CPU. This is quite remarkable when compared to the numbers calculated in Section 2 - Computability. However, exiting a branch once it has been calculated that there can no longer be a shorter path than the current shortest in this branch by using the  \text{min\_units\_per\_square} constant could be considered cheating. After all, there was no way for me to be fully confident in it's validity before running the program.
-If we take out that optimization the program calls the function 660 449 985 times and runs for 22 seconds.
+
+In the final version of the program, the \textbf{handle\_piece()} function is called \linebreak \textbf{18 526 851} times in total. Of which \textbf{15 422 842} calls are immediately cut short because it has been calculated that their \textbf{sub-trees} have no chance of beating the current shortest path. That is quite remarkable. More than \textbf{83\%} of all calls to the function end up getting cut short. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/Figure14}
+    \caption{Total optimized function calls}
+    \label{fig:func-call-diagram-1}
+\end{figure}
+
+Clearly, that little check is quite the time saver. If we only check for whether or not the current distance is already longer than the shortest path and omit the \textbf{min\_distance\_per\_tile} calculation, the function is called \textbf{660 449 985} times. Such a small calculation saves us \textbf{97\%} of these function calls.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.73\textwidth]{images/Figure15}
+    \caption{Total function calls compared}
+    \label{fig:func-call-diagram-2}
+\end{figure}
+
+\newpage
+
+The algorithm has an average runtime of \textbf{0.5 seconds} on my \textit{AMD Ryzen 9 5950x} CPU. This is quite remarkable when compared to the numbers calculated in Section 2 - Computability. However, exiting a branch once it has been calculated that there can no longer be a shorter path than the current shortest in this branch by using the  \text{min\_units\_per\_square} constant could be considered cheating. After all, there was no way for me to be fully confident in it's validity before running the program.
+If we take out that optimization the program calls the function  times and runs for \textbf{22 seconds}.
+
+These are the three functions that take up the majority of the runtime:
+
+\begin{itemize}
+	\item \textbf{extract\_piece()} 15\%
+	\item \textbf{handle\_piece()} 25\%
+	\item \textbf{get\_distance()} 60\%
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Figure16}
+    \caption{Total runtime}
+    \label{fig:runtime-diagram}
+\end{figure}
+
+It seems the majority of the time is spent looking up distances in the pre-calculated distances array. However, it is important to remember that \textbf{get\_distance()} also handles finding the index of the current piece on it's own. More importantly, being inside the loop over all 6 rolls in \textbf{handle\_piece()}, \textbf{get\_distance()} is called a lot more often than the other two functions.
 
 
 \end{document}

@@ -53,8 +53,8 @@ void calculate_distances()
         for (int j = 0; j < 6; j++)
         {
             get_coords(i+j+1, to);
-            vec[0] = (int16_t) (to[0] - from[0]);
-            vec[1] = (int16_t) (to[1] - from[1]);
+            vec[0] = to[0] - from[0];
+            vec[1] = to[1] - from[1];
             distances[i*6 + j] = round(sqrt(vec[0] * vec[0] + vec[1] * vec[1]));
         }
     }
@@ -69,8 +69,11 @@ void calculate_distances()
  * @param roll_num the number rolled -> used to find the bit board to land on
  * @return distance in units
  */
+
+static int calls = 0;
 int get_distance(int64_t from, int roll_num)
 {
+    calls++;
     int from_index = 0;
     while(!(from & starting_board))
     {
@@ -79,8 +82,7 @@ int get_distance(int64_t from, int roll_num)
     }
     from_index--;
 
-    int distance = distances[from_index * 6 + (roll_num-1)];
-    return distance;
+    return distances[from_index * 6 + (roll_num-1)];
 }
 
 //-------------PATH-------------
@@ -154,7 +156,6 @@ int64_t extract_piece(int64_t path, int operation_flag)
 
     return extracted;
 }
-
 
 /**
  * Finds the shortest path for bringing a single piece inside the piece_mask
@@ -240,11 +241,10 @@ int find_shortest_path()
             case 1: start_board = start_p2; break;
             case 2: start_board = start_p3; break;
             case 3: start_board = start_p4; break;
-            default: break;
+            default: exit(1);
         }
         handle_piece(start_board);
         path_length += cur_shortest;
-        printf("%d\n", cur_shortest);
         cur_shortest = distance_mask; //RESET
         full_path_index++;
     }
