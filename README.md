@@ -1,3 +1,3 @@
 # MaeDn-Analysis
 A little exercise in applied path algorithms. 
-For more info read the pdf.
+For more information read the pdf.
