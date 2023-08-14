@@ -1,0 +1,126 @@
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    @keyframes showPiece 
+    {
+      0% 
+      {visibility: hidden;}
+      1% 
+      {visibility: visible;}
+    }
+
+    #piece2 {animation: showPiece 10000s 5s;}
+    #piece3 {animation: showPiece 10000s 10s;}
+    #piece4 {animation: showPiece 10000s 15s;}
+  </style>
+
+  <style>
+    #pathAnim1 {animation: drawPath 11.3s linear forwards;}
+    #pathAnim2 {animation: drawPath 12s 5s linear forwards;}
+    #pathAnim3 {animation: drawPath 12.5s 10s linear forwards;}
+    #pathAnim4 {animation: drawPath 11.7s 15s linear forwards;}
+
+    @keyframes drawPath 
+    {
+      0% 
+      {stroke-dashoffset: 5000;}
+      100% 
+      {stroke-dashoffset: 0;}
+    }
+  </style>
+
+  <!-- Function to replace board imagine in case png is not found-->
+  <script type="text/ecmascript">
+    <![CDATA[
+    function replaceImage(img) 
+    {
+      img.href.baseVal = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mensch_%C3%A4rgere_dich_nicht_4.svg/1024px-Mensch_%C3%A4rgere_dich_nicht_4.svg.png";
+    }
+    ]]>
+  </script>
+
+  <defs>
+    <pattern id="board" x="0" y="0" width="1" height="1">
+      <image href="Tex/images/Figure1.png" onerror="replaceImage(this)" width="1024" height="1024" />
+    </pattern>
+
+    <symbol id="piece">
+      <circle cx="50" cy="50" r="30" fill="#2e2e2e" /> 
+      <circle cx="50" cy="50" r="15" fill="#454545" />
+    </symbol>
+
+  </defs>
+  
+  <!-- BACKGROUND BOARD -->
+  <rect x="0" y="0" width="1024" height="1024" fill="url(#board)" />
+
+  <!--        PIECES        -->
+
+  <!-- Path 1 -->
+  <path id="path1" d="M 122 887 L 377 897 L 206 547 L 206 377 L 377 207 L 547 206 L 718 377 L 718 547 L 547 803 L 462 550" fill="none" />
+
+  <!-- PATH 1 ANIMATION -->
+  <path id="pathAnim1" d="M 172 937 L 427 947 L 256 597 L 256 427 L 427 257 L 597 256 L 768 427 L 768 597 L 597 853 L 512 600" fill="none" stroke="#1b8fdc" stroke-dasharray="5000" stroke-dashoffset="5000" stroke-width="5"/>
+
+  <!-- PIECE 1 -->
+  <use href="#piece">
+    <animateMotion dur="5s" fill="freeze">
+      <mpath href="#path1"/>
+    </animateMotion>
+  </use>
+
+  <!-- Path 2 -->
+  <path id="path2" d="M 37 887 L 377 897 L 206 547 L 206 377 L 377 207 L 547 206 L 718 377 L 718 547 L 547 718 L 462 630" fill="none" />
+
+  <!-- PATH 2 ANIMATION -->
+  <path id="pathAnim2" d="M 87 937 L 427 947 L 256 597 L 256 427 L 427 257 L 597 256 L 768 427 L 768 597 L 597 768 L 512 680" fill="none" stroke="#09d048" stroke-dasharray="5000" stroke-dashoffset="5000" stroke-width="5"/>
+
+  <!-- PIECE 2 -->
+  <use href="#piece" id="piece2" style="visibility: hidden;">
+    <animateMotion dur="5s" begin="5s" fill="freeze">
+      <mpath href="#path2"/>
+    </animateMotion>
+  </use>
+  
+  <!--standstill-->
+  <use href="#piece" x="37" y="887">
+   <animate attributeName="x" from="37" to="-3500" dur="0.001s" begin="5s" fill="freeze"/>
+  </use>
+
+  <!-- Path 3 -->
+  <path id="path3" d="M 121 802 L 377 897 L 206 547 L 206 377 L 377 207 L 547 206 L 718 377 L 718 547 L 547 633 L 462 720" fill="none" />
+
+  <!-- PATH 3 ANIMATION -->
+  <path id="pathAnim3" d="M 171 852 L 427 947 L 256 597 L 256 427 L 427 257 L 597 256 L 768 427 L 768 597 L 597 683 L 512 770" fill="none" stroke="#e71717" stroke-dasharray="5000" stroke-dashoffset="5000" stroke-width="5"/>
+
+  <!-- PIECE 3 -->
+  <use href="#piece" id="piece3" style="visibility: hidden;">
+    <animateMotion dur="5s" begin="10s" fill="freeze">
+      <mpath href="#path3"/>
+    </animateMotion>
+  </use>
+
+  <!--standstill-->
+  <use href="#piece" x="121" y="802">
+   <animate attributeName="x" from="121" to="-3500" dur="0.001s" begin="10s" fill="freeze"/>
+  </use>
+  
+  <!-- Path 4 -->
+  <path id="path4" d="M 35 802 L 377 897 L 206 547 L 206 377 L 377 207 L 547 206 L 718 377 L 718 547 L 547 718 L 462 800" fill="none" />
+
+  <!-- PATH 4 ANIMATION -->
+  <path id="pathAnim4" d="M 85 852 L 427 947 L 256 597 L 256 427 L 427 257 L 597 256 L 768 427 L 768 597 L 597 768 L 512 850" fill="none" stroke="#e277a7" stroke-dasharray="5000" stroke-dashoffset="5000" stroke-width="5"/>
+
+  <!-- PIECE 4 -->
+  <use href="#piece" id="piece4" style="visibility: hidden;">
+    <animateMotion dur="5s" begin="15s" fill="freeze">
+      <mpath href="#path4"/>
+    </animateMotion>
+  </use>
+  
+  <!--standstill-->
+  <use href="#piece" x="35" y="802">
+   <animate attributeName="x" from="35" to="-3500" dur="0.001s" begin="15s" fill="freeze"/>
+  </use>
+
+</svg>
