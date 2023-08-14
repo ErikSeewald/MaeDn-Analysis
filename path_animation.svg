@@ -18,7 +18,7 @@
     #pathAnim1 {animation: drawPath 11.3s linear forwards;}
     #pathAnim2 {animation: drawPath 12s 5s linear forwards;}
     #pathAnim3 {animation: drawPath 12.5s 10s linear forwards;}
-    #pathAnim4 {animation: drawPath 11.7s 15s linear forwards;}
+    #pathAnim4 {animation: drawPath 11.8s 15s linear forwards;}
 
     @keyframes drawPath 
     {
