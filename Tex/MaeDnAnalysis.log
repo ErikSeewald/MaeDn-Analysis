@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.16)  13 AUG 2023 16:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.16)  14 AUG 2023 10:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -246,7 +246,7 @@ File: images/Figure1.png Graphic file (type png)
 Package pdftex.def Info: images/Figure1.png  used on input line 61.
 (pdftex.def)             Requested size: 272.99881pt x 273.00365pt.
  [2 <./images/Figure1.png>]
-Overfull \hbox (5.18756pt too wide) in paragraph at lines 77--78
+Overfull \hbox (5.18756pt too wide) in paragraph at lines 76--77
 []\OT1/cmr/m/n/12 These straight-for-ward yet en-ter-tain-ing rules have con-tr
 ibuted to the game's
  []
@@ -254,31 +254,31 @@ ibuted to the game's
 <images/Figure2.png, id=12, 456.2646pt x 247.4043pt>
 File: images/Figure2.png Graphic file (type png)
 <use images/Figure2.png>
-Package pdftex.def Info: images/Figure2.png  used on input line 89.
+Package pdftex.def Info: images/Figure2.png  used on input line 88.
 (pdftex.def)             Requested size: 234.00238pt x 126.888pt.
 [3 <./images/Figure2.png>] [4] [5] [6]
-<images/Figure3.png, id=33, 457.71pt x 457.71pt>
+<images/Figure3.png, id=34, 457.71pt x 457.71pt>
 File: images/Figure3.png Graphic file (type png)
 <use images/Figure3.png>
-Package pdftex.def Info: images/Figure3.png  used on input line 173.
+Package pdftex.def Info: images/Figure3.png  used on input line 172.
 (pdftex.def)             Requested size: 234.00238pt x 234.00171pt.
-<images/Figure4.png, id=34, 1027.84pt x 854.19125pt>
+<images/Figure4.png, id=35, 1027.84pt x 854.19125pt>
 File: images/Figure4.png Graphic file (type png)
 <use images/Figure4.png>
-Package pdftex.def Info: images/Figure4.png  used on input line 182.
+Package pdftex.def Info: images/Figure4.png  used on input line 181.
 (pdftex.def)             Requested size: 117.00119pt x 97.23283pt.
  [7 <./images/Figure3.png> <./images/Figure4.png>]
-<images/Figure5.png, id=41, 481.8pt x 316.5426pt>
+<images/Figure5.png, id=42, 481.8pt x 316.5426pt>
 File: images/Figure5.png Graphic file (type png)
 <use images/Figure5.png>
-Package pdftex.def Info: images/Figure5.png  used on input line 194.
+Package pdftex.def Info: images/Figure5.png  used on input line 193.
 (pdftex.def)             Requested size: 390.0pt x 256.23871pt.
  [8 <./images/Figure5.png>] [9]
-<images/Figure6.png, id=49, 897.3525pt x 600.44325pt>
+<images/Figure6.png, id=50, 897.3525pt x 600.44325pt>
 File: images/Figure6.png Graphic file (type png)
 <use images/Figure6.png>
 Package pdftex.def Info: images/Figure6.png  used on input line 227.
-(pdftex.def)             Requested size: 350.99762pt x 234.85907pt.
+(pdftex.def)             Requested size: 312.00119pt x 208.76566pt.
  [10 <./images/Figure6.png>]
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -303,7 +303,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 323--325
  []
 
 [13]
-<images/Figure7.png, id=65, 1027.84pt x 1027.84pt>
+<images/Figure7.png, id=66, 1027.84pt x 1027.84pt>
 File: images/Figure7.png Graphic file (type png)
 <use images/Figure7.png>
 Package pdftex.def Info: images/Figure7.png  used on input line 361.
@@ -321,52 +321,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 505--508
  []
 
 [18] [19] [20]
-<images/Figure8.png, id=89, 1027.84pt x 1027.84pt>
+<images/Figure8.png, id=90, 1027.84pt x 1027.84pt>
 File: images/Figure8.png Graphic file (type png)
 <use images/Figure8.png>
 Package pdftex.def Info: images/Figure8.png  used on input line 591.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
-<images/Figure9.png, id=90, 1027.84pt x 1027.84pt>
+<images/Figure9.png, id=91, 1027.84pt x 1027.84pt>
 File: images/Figure9.png Graphic file (type png)
 <use images/Figure9.png>
 Package pdftex.def Info: images/Figure9.png  used on input line 598.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
-<images/Figure10.png, id=91, 1027.84pt x 1027.84pt>
+<images/Figure10.png, id=92, 1027.84pt x 1027.84pt>
 File: images/Figure10.png Graphic file (type png)
 <use images/Figure10.png>
 Package pdftex.def Info: images/Figure10.png  used on input line 605.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
-<images/Figure11.png, id=92, 1027.84pt x 1027.84pt>
+<images/Figure11.png, id=93, 1027.84pt x 1027.84pt>
 File: images/Figure11.png Graphic file (type png)
 <use images/Figure11.png>
 Package pdftex.def Info: images/Figure11.png  used on input line 612.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
-<images/Figure12.png, id=93, 1027.84pt x 1027.84pt>
+<images/Figure12.png, id=94, 1027.84pt x 1027.84pt>
 File: images/Figure12.png Graphic file (type png)
 <use images/Figure12.png>
 Package pdftex.def Info: images/Figure12.png  used on input line 619.
 (pdftex.def)             Requested size: 234.00238pt x 233.99864pt.
  [21 <./images/Figure8.png>] [22 <./images/Figure9.png> <./images/Figure10.png>
 ] [23 <./images/Figure11.png> <./images/Figure12.png>] [24]
-<images/Figure13.png, id=111, 469.15276pt x 370.986pt>
+<images/Figure13.png, id=112, 469.15276pt x 370.986pt>
 File: images/Figure13.png Graphic file (type png)
 <use images/Figure13.png>
 Package pdftex.def Info: images/Figure13.png  used on input line 660.
 (pdftex.def)             Requested size: 390.0pt x 308.41077pt.
 
 [25 <./images/Figure13.png>]
-<images/Figure14.png, id=117, 455.301pt x 344.487pt>
+<images/Figure14.png, id=118, 455.301pt x 344.487pt>
 File: images/Figure14.png Graphic file (type png)
 <use images/Figure14.png>
 Package pdftex.def Info: images/Figure14.png  used on input line 671.
 (pdftex.def)             Requested size: 155.99762pt x 118.02812pt.
-<images/Figure15.png, id=118, 502.2765pt x 290.88675pt>
+<images/Figure15.png, id=119, 502.2765pt x 290.88675pt>
 File: images/Figure15.png Graphic file (type png)
 <use images/Figure15.png>
 Package pdftex.def Info: images/Figure15.png  used on input line 680.
 (pdftex.def)             Requested size: 284.69833pt x 164.88394pt.
  [26 <./images/Figure14.png> <./images/Figure15.png>]
-<images/Figure16.png, id=124, 495.65175pt x 302.93175pt>
+<images/Figure16.png, id=125, 495.65175pt x 302.93175pt>
 File: images/Figure16.png Graphic file (type png)
 <use images/Figure16.png>
 Package pdftex.def Info: images/Figure16.png  used on input line 700.
@@ -408,7 +408,7 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eri
 k/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/U
 sers/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pf
 b>
-Output written on MaeDnAnalysis.pdf (27 pages, 2090865 bytes).
+Output written on MaeDnAnalysis.pdf (27 pages, 2093266 bytes).
 PDF statistics:
  176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
