@@ -34,14 +34,14 @@
     <![CDATA[
     function replaceImage(img) 
     {
-      img.href.baseVal = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mensch_%C3%A4rgere_dich_nicht_4.svg/1024px-Mensch_%C3%A4rgere_dich_nicht_4.svg.png";
+      img.href.baseVal = "Tex/images/Figure1.png";
     }
     ]]>
   </script>
 
   <defs>
     <pattern id="board" x="0" y="0" width="1" height="1">
-      <image href="Tex/images/Figure1.png" onerror="replaceImage(this)" width="1024" height="1024" />
+      <image href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mensch_%C3%A4rgere_dich_nicht_4.svg/1024px-Mensch_%C3%A4rgere_dich_nicht_4.svg.png" onerror="replaceImage(this)" width="1024" height="1024" />
     </pattern>
 
     <symbol id="piece">
