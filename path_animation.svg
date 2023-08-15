@@ -9,9 +9,9 @@
       {visibility: visible;}
     }
 
-    #piece2 {animation: showPiece 10000s 5s;}
-    #piece3 {animation: showPiece 10000s 10s;}
-    #piece4 {animation: showPiece 10000s 15s;}
+    #piece2 {animation: showPiece 10000s 5.1s;}
+    #piece3 {animation: showPiece 10000s 10.1s;}
+    #piece4 {animation: showPiece 10000s 15.1s;}
   </style>
 
   <style>
