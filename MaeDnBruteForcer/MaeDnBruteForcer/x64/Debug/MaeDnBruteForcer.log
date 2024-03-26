@@ -1,0 +1,3 @@
+﻿  brute_forcer.c
+C:\Users\Erik\Desktop\MaeDn-Analysis\MaeDnBruteForcer\src\brute_forcer.c(58,34): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  MaeDnBruteForcer.vcxproj -> C:\Users\Erik\Desktop\MaeDn-Analysis\MaeDnBruteForcer\x64\Debug\MaeDnBruteForcer.exe
